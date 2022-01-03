@@ -5,9 +5,9 @@ import { Socket } from 'ngx-socket-io';
   providedIn: 'root'
 })
 export class WebsocketService {
-  socketStatus: boolean = false;
+  public socketStatus: boolean = false;
 
-  constructor(private socket: Socket) {
+  constructor(public socket: Socket) {
     this.checkStatus();
    }
 

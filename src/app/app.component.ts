@@ -9,7 +9,7 @@ import { WebsocketService } from './websocket.service';
 export class AppComponent implements OnInit {
   title = 'RealtimeChatFrontend';
 
-  constructor(public wsService: WebsocketService) {}
+  constructor() {}
 
   ngOnInit(): void {
     
