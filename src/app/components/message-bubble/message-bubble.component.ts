@@ -11,6 +11,7 @@ export class MessageBubbleComponent implements OnInit {
 
   @Input() message: string = '';
   @Input() name: string = '';
+  @Input() isSameUser: boolean = false;
 
   ngOnInit(): void {
   }

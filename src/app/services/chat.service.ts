@@ -14,7 +14,6 @@ export class ChatService {
       from: name,
       body: message
     }
-    console.log("mensaje enviado")
     this.wsService.emit('message', payload)
   }
 

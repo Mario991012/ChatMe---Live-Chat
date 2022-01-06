@@ -1,0 +1,6 @@
+.foot {
+	display: flex;
+}
+.foot .msg {
+	flex-grow: 1;
+}

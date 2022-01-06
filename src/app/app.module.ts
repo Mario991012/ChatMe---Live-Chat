@@ -8,6 +8,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { MessageBubbleComponent } from './components/message-bubble/message-bubble.component';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
@@ -21,7 +22,8 @@ const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
   imports: [
     BrowserModule,
     SocketIoModule.forRoot(config),
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

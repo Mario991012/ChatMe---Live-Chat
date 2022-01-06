@@ -1,7 +1,12 @@
 <div class="chat">
-  <div class="mine messages">
+  <div [attr.class]="isSameUser ? 'messages mine' : 'messages yours'">
     <div class="message last">
-      {{name}}: {{message}}
+      <div *ngIf="!isSameUser">
+        <b class="message-name">{{name}}</b>
+      </div>
+      <div class="message-body">
+        {{message}}
+      </div>
      </div>
   </div>
 </div>

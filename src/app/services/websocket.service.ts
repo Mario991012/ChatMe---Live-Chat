@@ -14,7 +14,7 @@ export class WebsocketService {
   checkStatus() {
 
     this.socket.on('connect', () => {
-      console.log("Connected to server");
+      console.log("Connected to server"); 
       this.socketStatus = true;
     });
 
@@ -25,9 +25,7 @@ export class WebsocketService {
   }
 
   emit( event: string, payload?: any, callback?: Function ) {
-
     this.socket.emit(event, payload, callback);
-
   }
 
   listen( event: string ) {

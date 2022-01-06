@@ -15,17 +15,23 @@ export class ChatComponent implements OnInit, OnDestroy {
   text: string = '';
   chatBox!: HTMLElement;
   yourName: string = '';
+  isYourMessage: boolean = false;
+  yourId: string = '';
 
   constructor(public chatService: ChatService) { }
 
-   ngOnInit(): void {
+   async ngOnInit() {
 
-    this.setName();
+    await this.setName();
     this.chatBox = document.getElementById('chat-messages') as HTMLElement;
 
     this.messagesSubscription = this.chatService.getMessages().subscribe( (message: any) => {
 
-      if( this.isValidMessage( message ) ){
+      if( this.isValidMessage( message ) ) {
+
+        let sameUser = this.isSameUser(message.from, this.yourName) ? true : false;
+        message.sameUser = sameUser;
+
         this.messages.push( message );
         this.updateChatPosition( this.chatBox );
       }
@@ -33,11 +39,19 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
   }
 
+  private isSameUser(from: string, yourName: string ){
+    return from === yourName;
+  }
+
   setName() {
 
     Swal.fire({
       title: 'What is your name?',
       input: 'text',
+      backdrop: `
+        rgba(0, 0, 0, 0.7)
+        no-repeat
+      `,
       inputAttributes: {
         autocapitalize: 'off'
       },
@@ -52,8 +66,13 @@ export class ChatComponent implements OnInit, OnDestroy {
       if(result && result.isConfirmed){
         this.yourName = result.value;
         Swal.fire({
+          toast: true,
+          position: 'top-right',
           title: `Welcome ${result.value}!`,
-          icon: 'success'
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2500,
+          timerProgressBar: true
         })
       }else{
         Swal.fire({

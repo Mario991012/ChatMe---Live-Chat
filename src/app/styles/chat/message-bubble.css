@@ -1,8 +1,7 @@
  
   .chat {
     display: flex;
-    width: 80%;
-    border: solid 1px #EEE;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -91,3 +90,13 @@
     background: white;
     border-bottom-left-radius: 10px;
   }
+
+  .message-body {
+    font-size: 1.2em;
+  }
+
+  .message-name {
+    font-size: 0.8em;
+  }
+
+  
