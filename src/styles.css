@@ -1,2 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("../src/app/styles/footer.css");
+@import url("../src/app/styles/chat/message-bubble.css");
+@import url("../src/app/styles/chat/chat.css");

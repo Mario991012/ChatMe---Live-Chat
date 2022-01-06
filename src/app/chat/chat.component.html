@@ -1,0 +1,32 @@
+<div class="row" style="width: 100%;">
+
+    <div class="p-2 bg-dark text-white col-lg-8 col-md-8 col-sm-12">
+        <h1>Mensajes</h1>
+    </div>
+    
+    <div class="col-lg-8 col-md-8 col-sm-12 p-0" style="height: 100vh;">
+        <div id="chat-messages">
+            <ng-container *ngFor="let message of messages">
+                <app-message-bubble
+                    [message]="message.body"
+                    [name]="message.from"
+                >
+                </app-message-bubble>
+            </ng-container>
+            
+        </div>
+        <div class="col-12 p-0" style="height: 5vh;">
+            <form (ngSubmit)="sendMessage()">
+                <input 
+                    type="text"
+                    [(ngModel)]="text"
+                    class="form-control"
+                    name="Mensaje"
+                    placeholder="Escribe un mensaje aquí"
+                    autofocus
+                    autocomplete="false"
+                >
+            </form>
+        </div>
+    </div>
+</div>
