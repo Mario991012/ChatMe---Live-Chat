@@ -1,0 +1,11 @@
+.foot {
+	display: flex;
+}
+.foot .msg {
+	flex-grow: 1;
+}
+
+.footer-input-text {
+    margin: 5px;
+    border-radius: 10px;
+}

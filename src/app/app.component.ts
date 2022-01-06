@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { WebsocketService } from './websocket.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,8 @@ import { WebsocketService } from './websocket.service';
 export class AppComponent implements OnInit {
   title = 'RealtimeChatFrontend';
 
-  constructor(public wsService: WebsocketService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    
   }
 }

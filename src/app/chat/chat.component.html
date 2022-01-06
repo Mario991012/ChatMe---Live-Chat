@@ -1,0 +1,33 @@
+<div class="chatbox">
+    <div class="chat-title p-3 bg-dark text-white col-lg-6 col-md-11 col-sm-11">
+        <h1>ChatMe <i class="far fa-comments"></i></h1>
+    </div>
+    <div class="chat-body col-lg-6 col-md-11 col-sm-11 p-0">
+        <div id="chat-messages">
+            <ng-container *ngFor="let message of messages">
+                <app-message-bubble
+                    [message]="message.body"
+                    [name]="message.from"
+                    [isSameUser]="message.sameUser"
+                >
+                </app-message-bubble>
+            </ng-container> 
+        </div>
+    </div>
+    <div class="chatbox-footer col-lg-6 col-md-11 col-sm-11 p-0">
+        <form (ngSubmit)="sendMessage()">
+            <div class="foot">
+                <input 
+                type="text"
+                [(ngModel)]="text"
+                class="form-control footer-input-text"
+                name="Mensaje"
+                placeholder="Send a message here..."
+                autofocus
+                autocomplete="false"
+                >
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

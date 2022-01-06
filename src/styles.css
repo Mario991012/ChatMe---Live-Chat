@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("../src/app/styles/footer.css");
+@import url("../src/app/styles/chat/message-bubble.css");
+@import url("../src/app/styles/chat/chat.css");
+@import url("../src/app/styles/chat/input-message.css");
+
+body {
+    background: linear-gradient(300deg,deepskyblue,blue,#a089e1);
+    background-size: 180% 180%;
+    animation: gradient-animation 21s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
