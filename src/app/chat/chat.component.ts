@@ -34,6 +34,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   setName() {
+
     Swal.fire({
       title: 'What is your name?',
       input: 'text',
@@ -44,15 +45,20 @@ export class ChatComponent implements OnInit, OnDestroy {
       confirmButtonText: 'Accept',
       showLoaderOnConfirm: true,
       allowOutsideClick: () => false,
+      inputValidator: (result) => { 
+          return !result ? 'You need to enter your name!' : ''
+      }
     }).then((result) => {
       if(result && result.isConfirmed){
         this.yourName = result.value;
         Swal.fire({
           title: `Welcome ${result.value}!`,
+          icon: 'success'
         })
       }else{
         Swal.fire({
           title: `Error!`,
+          icon: 'error'
         })
       }
     })
