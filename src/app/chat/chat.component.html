@@ -13,23 +13,21 @@
                 </app-message-bubble>
             </ng-container> 
         </div>
-        <div class="col-12 p-0" style="height: 5vh;">
-            <form (ngSubmit)="sendMessage()">
-               <div class="chatbox-footer">
-                   <div class="foot">
-                       <input 
-                       type="text"
-                       [(ngModel)]="text"
-                       class="form-control"
-                       name="Mensaje"
-                       placeholder="Send a message here..."
-                       autofocus
-                       autocomplete="false"
-                       >
-                       <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                   </div>
-               </div>
-            </form>
-        </div>
+    </div>
+    <div class="chatbox-footer col-lg-6 col-md-11 col-sm-11 p-0">
+        <form (ngSubmit)="sendMessage()">
+            <div class="foot">
+                <input 
+                type="text"
+                [(ngModel)]="text"
+                class="form-control footer-input-text"
+                name="Mensaje"
+                placeholder="Send a message here..."
+                autofocus
+                autocomplete="false"
+                >
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
     </div>
 </div>

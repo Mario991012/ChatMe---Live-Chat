@@ -1,9 +1,14 @@
 #chat-messages {
     height: 300px;
     border: 1px solid gray;
-    border-radius: 5px;
     overflow-y: scroll;
     background-color: whitesmoke;
+}
+
+.chat-title {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .chatbox {
@@ -12,15 +17,18 @@
     align-items: center;
     justify-content: center;
     margin-top: 40px;
-    border-radius: 20px;
     height: 70vh;
+}
+
+.chatbox-body {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /* Chat Footer */
 .chatbox-footer {
-    padding: 5px; 
     background-color: whitesmoke; 
-    border: 1px solid #333;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .chatbox-footer button {
