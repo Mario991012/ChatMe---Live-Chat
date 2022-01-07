@@ -9,6 +9,9 @@ import { MessageBubbleComponent } from './components/message-bubble/message-bubb
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UsersListComponent } from './users-list/users-list.component';
+import { AppRoutingModule } from './app.routing.module';
+import { ChatLayoutComponent } from './layouts/chat-layout/chat-layout.component';
 
 const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
@@ -17,13 +20,16 @@ const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
     AppComponent,
     FooterComponent,
     MessageBubbleComponent,
-    ChatComponent
+    ChatComponent,
+    UsersListComponent,
+    ChatLayoutComponent
   ],
   imports: [
     BrowserModule,
     SocketIoModule.forRoot(config),
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
