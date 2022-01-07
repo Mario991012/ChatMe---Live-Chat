@@ -65,15 +65,30 @@ export class ChatComponent implements OnInit, OnDestroy {
     }).then((result) => {
       if(result && result.isConfirmed){
         this.yourName = result.value;
-        Swal.fire({
-          toast: true,
-          position: 'top-right',
-          title: `Welcome ${result.value}!`,
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 2500,
-          timerProgressBar: true
-        })
+        let successLogin: any = this.chatService.loginToChat(this.yourName);
+
+        if(successLogin){
+          Swal.fire({
+            toast: true,
+            position: 'top-right',
+            title: `Welcome ${result.value}`,
+            text: `Say hi to all the users connected!`,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3500,
+            timerProgressBar: true
+          })
+        } else {
+          Swal.fire({
+            title: `An Error has occured`,
+            text: 'Try to login again...',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true
+          })
+        }
+        
       }else{
         Swal.fire({
           title: `Error!`,

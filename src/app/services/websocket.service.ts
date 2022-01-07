@@ -31,4 +31,15 @@ export class WebsocketService {
   listen( event: string ) {
     return this.socket.fromEvent( event );
   }
+
+  loginWS( name: string ) {
+
+    return new Promise((resolve, reject) => {
+      
+      this.emit( 'config-user', { name }, (res: any) => {
+        resolve(true);
+      })
+
+    })
+  }
 }

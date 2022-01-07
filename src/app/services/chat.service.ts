@@ -20,4 +20,8 @@ export class ChatService {
   getMessages() {
     return this.wsService.listen('newMessage');
   }
+
+  async loginToChat( name: string ) {
+    return (await this.wsService.loginWS( name ).then(success => { return success; })) as boolean;
+  }
 }
