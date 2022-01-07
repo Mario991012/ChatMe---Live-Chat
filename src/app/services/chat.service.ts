@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../classes/User';
 import { WebsocketService } from './websocket.service';
 
 @Injectable({
@@ -23,5 +24,9 @@ export class ChatService {
 
   async loginToChat( name: string ) {
     return (await this.wsService.loginWS( name ).then(success => { return success; })) as boolean;
+  }
+
+  async reloginToChat( user: User ) {
+    return (await this.wsService.reloginWS( user ).then(success => { return success; })) as boolean;
   }
 }

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Message } from '../models/Message';
 import { ChatService } from '../services/chat.service';
+import { WebsocketService } from '../services/websocket.service';
 
 @Component({
   selector: 'app-chat',
@@ -18,11 +19,15 @@ export class ChatComponent implements OnInit, OnDestroy {
   isYourMessage: boolean = false;
   yourId: string = '';
 
-  constructor(public chatService: ChatService) { }
+  constructor(public chatService: ChatService, private wsService: WebsocketService) { }
 
    async ngOnInit() {
 
-    await this.setName();
+    if(!this.wsService.getUser()){
+      await this.setName();
+    } else {
+      this.chatService.reloginToChat(this.wsService.getUser());
+    }
     this.chatBox = document.getElementById('chat-messages') as HTMLElement;
 
     this.messagesSubscription = this.chatService.getMessages().subscribe( (message: any) => {
