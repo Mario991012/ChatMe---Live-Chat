@@ -30,4 +30,8 @@ export class ChatService {
   async reloginToChat( user: User ) {
     return (await this.wsService.reloginWS( user ).then(success => { return success; })) as boolean;
   }
+
+  getActiveUsers() {
+    return this.wsService.listen( 'active-users' );
+  }
 }

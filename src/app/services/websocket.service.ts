@@ -19,6 +19,7 @@ export class WebsocketService {
     this.socket.on('connect', () => {
       console.log("Connected to server"); 
       this.socketStatus = true;
+      this.loadUser();
     });
 
     this.socket.on('disconnect', () => {

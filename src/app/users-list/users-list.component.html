@@ -1,1 +1,11 @@
-<p>users-list works!</p>
+<div class="chatbox">
+    <div class="row">
+        <h1 class="text-white display-6">Usuarios conectados</h1>
+        
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let user of obs_activeUsers | async" style="margin: 10px; max-width: 350px;">
+                <span class="badge badge-info text-black">{{user.name}}</span> {{user.id}} 
+            </li>
+        </ul>
+    </div>
+</div>
