@@ -2,11 +2,11 @@ export class Message {
     
     public from: string;
     public body: string;
-    public sameUser: boolean;
+    public id: string;
 
     constructor() {
         this.from = '';
         this.body = '';
-        this.sameUser = false;
+        this.id = '';
     }
 }

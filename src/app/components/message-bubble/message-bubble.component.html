@@ -1,7 +1,7 @@
 <div class="chat">
-  <div [attr.class]="isSameUser ? 'messages mine' : 'messages yours'">
-    <div class="message last">
-      <div *ngIf="!isSameUser">
+  <div [attr.class]="wsService.getUser().id == idUser ? 'messages mine' : 'messages yours'">
+    <div class="message">
+      <div *ngIf="!(wsService.getUser().id == idUser)">
         <b class="message-name">{{name}}</b>
       </div>
       <div class="message-body">
