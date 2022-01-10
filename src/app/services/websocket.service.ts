@@ -86,4 +86,8 @@ export class WebsocketService {
   getUser(){
     return this.user;
   }
+
+  logout() {
+    localStorage.removeItem('user');
+  }
 }

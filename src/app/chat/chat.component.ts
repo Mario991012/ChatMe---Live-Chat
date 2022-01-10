@@ -103,6 +103,11 @@ export class ChatComponent implements OnInit, OnDestroy {
     })
   }
 
+  logout() {
+    this.wsService.logout();
+    document.location.reload();
+  }
+
   isValidMessage( message : string ): boolean {
     return message != null && message != undefined && message !== ''; 
   }
