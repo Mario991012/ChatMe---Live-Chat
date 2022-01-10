@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { User } from '../classes/User';
 import { Message } from '../models/Message';
 import { ChatService } from '../services/chat.service';
 import { WebsocketService } from '../services/websocket.service';
@@ -18,12 +19,15 @@ export class ChatComponent implements OnInit, OnDestroy {
   yourName: string = '';
   isYourMessage: boolean = false;
   yourId: string = '';
+  loggedUser!: User;
 
-  constructor(public chatService: ChatService, private wsService: WebsocketService) { }
+  constructor(public chatService: ChatService, public wsService: WebsocketService) { }
 
    async ngOnInit() {
 
-    if(!this.wsService.getUser()){
+    this.loggedUser = this.wsService.getUser();
+
+    if(!this.loggedUser) {
       await this.setName();
     } else {
       this.chatService.reloginToChat(this.wsService.getUser());
@@ -34,18 +38,11 @@ export class ChatComponent implements OnInit, OnDestroy {
 
       if( this.isValidMessage( message ) ) {
 
-        let sameUser = this.isSameUser(message.from, this.yourName) ? true : false;
-        message.sameUser = sameUser;
-
         this.messages.push( message );
         this.updateChatPosition( this.chatBox );
       }
 
     });
-  }
-
-  private isSameUser(from: string, yourName: string ){
-    return from === yourName;
   }
 
   setName() {
@@ -71,6 +68,9 @@ export class ChatComponent implements OnInit, OnDestroy {
       if(result && result.isConfirmed){
         this.yourName = result.value;
         let successLogin: any = this.chatService.loginToChat(this.yourName);
+
+        let welcome = document.getElementById('welcomeTitle') as HTMLElement;
+        welcome.innerHTML = `Welcome ${this.yourName}!`
 
         if(successLogin){
           Swal.fire({
@@ -120,7 +120,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   sendMessage(): void {
     
     if(this.text.trim() !== '') {
-      this.chatService.sendMessage(this.text, this.yourName);
+      this.chatService.sendMessage(this.text, this.wsService.getUser().name, this.wsService.getUser().id);
       this.text = '';
     }
 
