@@ -90,5 +90,6 @@ export class WebsocketService {
 
   logout() {
     localStorage.removeItem('user');
+    this.emit( 'config-user', { name: 'unregistered-user' }, () => {} );
   }
 }
