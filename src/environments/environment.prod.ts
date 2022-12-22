@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
 
-  wsUrl: 'http://localhost:3000'
+  wsUrl: 'https://web-production-def8.up.railway.app/'
 };

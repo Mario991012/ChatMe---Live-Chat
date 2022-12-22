@@ -19,6 +19,7 @@ export class WebsocketService {
     this.socket.on('connect', () => {
       console.log("Connected to server"); 
       this.socketStatus = true;
+      this.loadUser();
     });
 
     this.socket.on('disconnect', () => {
@@ -89,5 +90,6 @@ export class WebsocketService {
 
   logout() {
     localStorage.removeItem('user');
+    this.emit( 'config-user', { name: 'unregistered-user' }, () => {} );
   }
 }
