@@ -5,11 +5,11 @@
 @import url("../src/app/styles/chat/input-message.css");
 
 body {
-    background: linear-gradient(300deg,deepskyblue,blue,#a089e1);
+    background: linear-gradient(300deg,#ecc90e,#7e6c12,#54460a);
     background-size: 180% 180%;
     animation: gradient-animation 21s ease infinite;
   }
-  
+
   @keyframes gradient-animation {
     0% {
       background-position: 0% 50%;
