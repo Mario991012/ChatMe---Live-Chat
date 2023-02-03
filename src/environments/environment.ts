@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  wsUrl: 'http://localhost:3000'
+  wsUrl: 'chatme-backend-production.up.railway.app/'
 };
 
 /*
