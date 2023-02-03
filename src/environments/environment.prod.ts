@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
 
-  wsUrl: 'chatme-backend-production.up.railway.app/'
+  wsUrl: 'https://web-production-def8.up.railway.app/'
 };
